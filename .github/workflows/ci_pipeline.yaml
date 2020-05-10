@@ -7,14 +7,12 @@ jobs:
         name: Feature tests
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - name: Start the test environment
-              run: ./start.sh --detach
+            -   uses: actions/checkout@v2
+            -   name: Start the test environment
+                run: ./start.sh --build --detach
 
-            -   name: Wait 20 sec
-                uses: jakejarvis/wait-action@master
-                with:
-                    time: '20s'
+            -   name: Ensure services up and ready
+                run: ./ensure_services_ready.sh
 
-            - name: Run feature tests
-              run: ./test.sh
+            -   name: Run feature tests
+                run: ./test.sh

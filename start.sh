@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-docker-compose --project-name tasting_app up "$@"
+COMPOSE_DOCKER_CLI_BUILD=1 docker-compose --project-name tasting_app up "$@"
