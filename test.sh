@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-docker build --tag feature-test --quiet --file Dockerfile.test . &> /dev/null &&
-docker run --rm --tty -i \
+docker build --tag feature-test --file Dockerfile.test . &> /dev/null &&
+docker run --rm -i \
   --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $(which docker):/bin/docker \
