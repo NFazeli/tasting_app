@@ -11,10 +11,10 @@ jobs:
             - name: Start the test environment
               run: ./start.sh --detach
 
-            - name: Wait 20 sec
-              uses: jakejarvis/wait-action@master
+            -   name: Wait 20 sec
+                uses: jakejarvis/wait-action@master
                 with:
-                  time: '20s'
+                    time: '20s'
 
             - name: Run feature tests
               run: ./test.sh
